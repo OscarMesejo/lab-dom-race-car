@@ -4,10 +4,10 @@ class Game {
         this.gameScreen = document.getElementById("game-screen");
         this.player = new Player(
             this.gameScreen,
+            200,
+            500,
             100,
-            100,
-            100,
-            100,
+            150,
             "./images/car.png"
         )
         this.startScreen = document.getElementById("game-intro");
@@ -45,6 +45,6 @@ class Game {
         window.requestAnimationFrame(()=> this.gameLoop())
     }
     update(){
-
+        this.player.move();
     }
 }
