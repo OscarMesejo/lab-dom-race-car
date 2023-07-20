@@ -1,6 +1,6 @@
 class Game {
     // code to be added
-    constructor(){
+    constructor() {
         this.gameScreen = document.getElementById("game-screen");
         this.player = new Player(
             this.gameScreen,
@@ -13,38 +13,46 @@ class Game {
         this.startScreen = document.getElementById("game-intro");
         this.width = '500px';
         this.height = '600px';
-        this.obtacles = [];
+        this.obstacles = [];
         this.score = 0;
         this.lives = 3;
-        this.gameIsOver = false;      
+        this.gameIsOver = false;
         this.gameEndScreen = document.getElementById("game-end");
-        this.player = null;
-        
     }
-    start(){
+
+    start() {
         this.gameScreen.style.width = this.width;
         this.gameScreen.style.height = this.height;
 
         //Hide the starter screen
         this.startScreen.style.display = "none";
 
-        //display the game screen
+        // display the game screen
         this.gameScreen.style.display = "block";
 
-        
         // start the game loop
-        this.gameLoop();
+        this.gameLoop()
     }
-    gameLoop(){
-        if(this.gameIsOver){
+
+    gameLoop() {
+        console.log('GAME LOOP STARTED');
+        if (this.gameIsOver) {
+            console.log('THE game is over');
             return
         }
-        this.update();
 
-        //this function is calling itself in a loop
-        window.requestAnimationFrame(()=> this.gameLoop())
+        this.update();
+        /* 
+        window.requestAnimationFrame(function(){
+           return gameLoop()
+        })
+        */
+
+        // This function it's calling itself in a loop
+        window.requestAnimationFrame(() => this.gameLoop())
     }
-    update(){
+
+    update() {
         this.player.move();
     }
 }
