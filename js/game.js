@@ -1,16 +1,25 @@
 class Game {
     // code to be added
     constructor(){
+        this.gameScreen = document.getElementById("game-screen");
+        this.player = new Player(
+            this.gameScreen,
+            100,
+            100,
+            100,
+            100,
+            "./images/car.png"
+        )
+        this.startScreen = document.getElementById("game-intro");
         this.width = '500px';
         this.height = '600px';
         this.obtacles = [];
         this.score = 0;
         this.lives = 3;
-        this.gameIsOver = false;
-        this.gameScreen = document.getElementById("game-screen");
+        this.gameIsOver = false;      
         this.gameEndScreen = document.getElementById("game-end");
         this.player = null;
-        this.startScreen = document.getElementById("game-intro");
+        
     }
     start(){
         this.gameScreen.style.width = this.width;
